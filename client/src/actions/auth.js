@@ -15,6 +15,7 @@ import {
 export const loadUser = () => async (dispatch) => {
 
   try {
+    api.defaults.headers.common["x-auth-token"] = localStorage.token;
     const res = await api.get('/auth')
 
     dispatch({
